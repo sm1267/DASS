@@ -1,0 +1,25 @@
+<%- include('partials/head', { title: 'Autentificare' }) %>
+
+<section class="card form-card">
+  <h1>Autentificare</h1>
+
+  <% if (error) { %>
+    <div class="flash flash-error"><%= error %></div>
+  <% } %>
+
+  <form method="post" class="stack">
+    <label>
+      <span>Email</span>
+      <input type="email" name="email" value="<%= form.email %>" required>
+    </label>
+
+    <label>
+      <span>Parola</span>
+      <input type="password" name="password" required>
+    </label>
+
+    <button class="button" type="submit">Intra in cont</button>
+  </form>
+</section>
+
+<%- include('partials/foot') %>

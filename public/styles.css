@@ -1,0 +1,271 @@
+:root {
+  --bg: #f4f0e8;
+  --panel: #fffaf2;
+  --text: #1b1b1b;
+  --muted: #6d655c;
+  --border: #d9cbb7;
+  --accent: #a43d17;
+  --accent-dark: #742a10;
+  --success-bg: #eef8ef;
+  --success-text: #225d2b;
+  --error-bg: #fdeeee;
+  --error-text: #8d1d1d;
+  --shadow: 0 14px 32px rgba(102, 72, 36, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  background:
+    radial-gradient(circle at top left, rgba(164, 61, 23, 0.12), transparent 28%),
+    linear-gradient(180deg, #f8f4ed 0%, var(--bg) 100%);
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  width: min(980px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.site-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 250, 242, 0.82);
+  backdrop-filter: blur(14px);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.brand {
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--muted);
+}
+
+.page {
+  padding: 2rem 0 3rem;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1,
+.form-card h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 0.95;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.eyebrow,
+.label {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.lead,
+.muted {
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-bottom: 1.5rem;
+}
+
+.metadata p {
+  margin: 0.5rem 0;
+}
+
+.flash {
+  margin-bottom: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  border: 1px solid transparent;
+}
+
+.flash-success {
+  background: var(--success-bg);
+  border-color: #b7d6ba;
+  color: var(--success-text);
+}
+
+.flash-error {
+  background: var(--error-bg);
+  border-color: #e4bbbb;
+  color: var(--error-text);
+}
+
+.form-card {
+  max-width: 560px;
+}
+
+.stack {
+  display: grid;
+  gap: 1rem;
+}
+
+label {
+  display: grid;
+  gap: 0.4rem;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font: inherit;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: white;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: 0.85rem 1.25rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--accent-dark);
+}
+
+.button-secondary {
+  background: #e8dccd;
+  color: #402815;
+}
+
+.button-secondary:hover {
+  background: #dcc9b3;
+}
+
+.info-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.reset-preview {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 14px;
+  background: #f7efe3;
+  border: 1px dashed var(--border);
+}
+
+code {
+  font-family: "Courier New", monospace;
+  font-size: 0.95em;
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+.simple-list,
+.ticket-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.simple-list li,
+.ticket-list li {
+  margin-bottom: 0.9rem;
+}
+
+.ticket-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: #f2e3d1;
+  color: #5f341e;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .section-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

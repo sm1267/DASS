@@ -1,0 +1,57 @@
+<%- include('partials/head', { title: 'Tichetele mele' }) %>
+
+<section class="grid">
+  <article class="card">
+    <h1>Tichetele mele</h1>
+
+    <% if (error) { %>
+      <div class="flash flash-error"><%= error %></div>
+    <% } %>
+
+    <form method="post" class="stack">
+      <label>
+        <span>Titlu</span>
+        <input type="text" name="title" value="<%= form.title %>" required>
+      </label>
+
+      <label>
+        <span>Descriere</span>
+        <textarea name="description" required><%= form.description %></textarea>
+      </label>
+
+      <label>
+        <span>Severitate</span>
+        <select name="severity">
+          <option value="LOW" <%= form.severity === 'LOW' ? 'selected' : '' %>>LOW</option>
+          <option value="MED" <%= form.severity === 'MED' ? 'selected' : '' %>>MED</option>
+          <option value="HIGH" <%= form.severity === 'HIGH' ? 'selected' : '' %>>HIGH</option>
+        </select>
+      </label>
+
+      <button class="button" type="submit">Creeaza tichet</button>
+    </form>
+  </article>
+
+  <article class="card">
+    <h2>Lista tichete</h2>
+
+    <% if (tickets.length === 0) { %>
+      <p class="muted">Nu exista inca tichete pentru acest cont.</p>
+    <% } else { %>
+      <ul class="ticket-list">
+        <% tickets.forEach((ticket) => { %>
+          <li>
+            <div class="ticket-head">
+              <strong><%= ticket.title %></strong>
+              <span class="pill"><%= ticket.severity %></span>
+            </div>
+            <p><%= ticket.description %></p>
+            <span class="muted">Status: <%= ticket.status %> - Creat la: <%= ticket.created_at %></span>
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
+  </article>
+</section>
+
+<%- include('partials/foot') %>
