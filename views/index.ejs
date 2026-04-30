@@ -14,23 +14,5 @@
   </div>
 </section>
 
-<section class="grid">
-  <article class="card">
-    <h2>Protectii active</h2>
-    <ul>
-      <li>Parole validate si stocate cu hash `scrypt`</li>
-      <li>Autentificare cu mesaj generic si protectie la brute force</li>
-      <li>Sesiuni securizate si regenerate dupa login</li>
-      <li>Resetare parola cu token aleator si expirare scurta</li>
-    </ul>
-  </article>
-
-  <article class="card">
-    <h2>Date locale</h2>
-    <p><strong>Fisierul SQLite:</strong> <code><%= dbPath %></code></p>
-    <p><strong>Utilizatori:</strong> <%= totalUsers %></p>
-    <p><strong>Tichete:</strong> <%= totalTickets %></p>
-  </article>
-</section>
 
 <%- include('partials/foot') %>
