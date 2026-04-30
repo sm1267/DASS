@@ -1,47 +1,39 @@
 # AuthX v1
 
-AuthX v1 is an intentionally vulnerable authentication demo built for the DASS course project. It covers registration, login, logout, and password reset using `Express`, `express-session`, `EJS`, and SQLite through Node's built-in `node:sqlite` module.
+AuthX v1 este o demonstratie intentionat vulnerabila a unui mecanism de autentificare, realizata pentru proiectul DASS. Aplicatia acopera inregistrarea, autentificarea, logout-ul si resetarea parolei folosind `Express`, `express-session`, `EJS` si SQLite prin modulul built-in `node:sqlite`.
 
-## What v1 includes
+## Ce include v1
 
-- user registration saved in SQLite
-- login with server-side sessions
+- inregistrare utilizator cu salvare in SQLite
+- autentificare cu sesiuni server-side
 - logout
-- forgot/reset password flow
-- dashboard for authenticated users
+- flux de forgot/reset password
+- dashboard pentru utilizatorii autentificati
 
-## Weaknesses intentionally left in place
+## Vulnerabilitati lasate intentionat in aplicatie
 
-The application UI does not advertise these weaknesses directly; they are documented here for the project and for the later v2 hardening step.
+Interfata aplicatiei nu afiseaza direct aceste vulnerabilitati; ele sunt documentate aici pentru proiect si pentru etapa ulterioara de hardening din v2.
 
-- passwords are stored in plaintext
-- weak password policy
-- register only checks that email and password are present
-- different login errors for nonexistent user vs wrong password
-- no brute-force protection or rate limiting
-- predictable and reusable reset tokens
-- incomplete session cookie settings
+- parolele sunt stocate in clar
+- politica de parola este slaba
+- la register se verifica doar prezenta emailului si a parolei
+- login-ul afiseaza mesaje diferite pentru user inexistent fata de parola gresita
+- nu exista protectie la brute force sau rate limiting
+- tokenurile de resetare sunt predictibile si reutilizabile
+- setarile cookie-ului de sesiune sunt incomplete
 
-## Local run
+## Rulare locala
 
-If `npm` is not recognized in the current terminal, open a new terminal window first.
+Daca `npm` nu este recunoscut in terminalul curent, deschide un terminal nou mai intai.
 
 ```bash
 npm install
 npm start
 ```
 
-Open `http://localhost:3000`.
+Deschide `http://localhost:3000`.
 
-## Data
+## Date
 
-- SQLite database file: `data/authx-v1.db`
-- The app creates the database automatically on first run.
-
-## Suggested PoCs for v1
-
-- register with a very weak password such as `123`
-- attempt login with an unknown email and then a known email + wrong password
-- inspect the `users` table and confirm passwords are readable
-- generate a reset link twice for the same account and observe the same token
-- reuse the same reset token multiple times
+- fisierul SQLite folosit: `data/authx-v1.db`
+- aplicatia creeaza automat baza de date la prima rulare
