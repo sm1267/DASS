@@ -1,47 +1,38 @@
-# AuthX v1
+# AuthX v2
 
-AuthX v1 is an intentionally vulnerable authentication demo built for the DASS course project. It covers registration, login, logout, and password reset using `Express`, `express-session`, `EJS`, and SQLite through Node's built-in `node:sqlite` module.
+AuthX v2 este versiunea securizata a aplicatiei pentru proiectul DASS. Aplicatia foloseste `Express`, `express-session`, `EJS` si `SQLite` prin modulul built-in `node:sqlite`.
 
-## What v1 includes
+## Ce include v2
 
-- user registration saved in SQLite
-- login with server-side sessions
-- logout
-- forgot/reset password flow
-- dashboard for authenticated users
+- inregistrare utilizator cu validare backend si politica de parola
+- stocare sigura a parolelor cu `scrypt`
+- autentificare cu mesaj generic pentru credeniale invalide
+- protectie la brute force prin rate limiting si blocare temporara
+- sesiuni securizate, regenerate dupa login
+- logout cu invalidarea sesiunii
+- resetare parola cu token aleator, expirare scurta si invalidare dupa folosire
+- tichete asociate utilizatorilor
+- jurnal de activitate in `audit_logs`
 
-## Weaknesses intentionally left in place
+## Rulare locala
 
-The application UI does not advertise these weaknesses directly; they are documented here for the project and for the later v2 hardening step.
-
-- passwords are stored in plaintext
-- weak password policy
-- register only checks that email and password are present
-- different login errors for nonexistent user vs wrong password
-- no brute-force protection or rate limiting
-- predictable and reusable reset tokens
-- incomplete session cookie settings
-
-## Local run
-
-If `npm` is not recognized in the current terminal, open a new terminal window first.
+Daca `npm` nu este recunoscut in terminalul curent, deschide un terminal nou sau foloseste `npm.cmd`.
 
 ```bash
 npm install
 npm start
 ```
 
-Open `http://localhost:3000`.
+Deschide `http://localhost:3000`.
 
-## Data
+Optional, pentru o configuratie stabila a sesiunilor intre restarturi, seteaza `SESSION_SECRET` inainte sa pornesti serverul.
 
-- SQLite database file: `data/authx-v1.db`
-- The app creates the database automatically on first run.
+## Date
 
-## Suggested PoCs for v1
+- fisier SQLite pentru v2: `data/authx-v2.db`
+- la prima rulare, schema este creata automat
+- daca fisierul SQLite existent foloseste o schema mai veche pentru v2, aplicatia incearca o migrare automata
 
-- register with a very weak password such as `123`
-- attempt login with an unknown email and then a known email + wrong password
-- inspect the `users` table and confirm passwords are readable
-- generate a reset link twice for the same account and observe the same token
-- reuse the same reset token multiple times
+## Observatii pentru resetarea parolei
+
+In v2, aplicatia nu mai afiseaza tokenul de resetare in interfata. Pentru testare locala, linkul de resetare este scris in consola serverului dupa ce trimiti formularul de forgot password.

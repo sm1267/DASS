@@ -5,13 +5,32 @@
     <p class="eyebrow">PROIECT DASS</p>
     <h1>Break the Login</h1>
     <p class="lead">
-      Aceasta este versiunea v1 a portalului fictiv AuthX.
+      Aceasta este versiunea securizata a portalului fictiv AuthX.
     </p>
   </div>
   <div class="hero-actions">
     <a class="button" href="/register">Creare cont</a>
     <a class="button button-secondary" href="/login">Autentificare</a>
   </div>
+</section>
+
+<section class="grid">
+  <article class="card">
+    <h2>Protectii active</h2>
+    <ul>
+      <li>Parole validate si stocate cu hash `scrypt`</li>
+      <li>Autentificare cu mesaj generic si protectie la brute force</li>
+      <li>Sesiuni securizate si regenerate dupa login</li>
+      <li>Resetare parola cu token aleator si expirare scurta</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <h2>Date locale</h2>
+    <p><strong>Fisierul SQLite:</strong> <code><%= dbPath %></code></p>
+    <p><strong>Utilizatori:</strong> <%= totalUsers %></p>
+    <p><strong>Tichete:</strong> <%= totalTickets %></p>
+  </article>
 </section>
 
 <%- include('partials/foot') %>

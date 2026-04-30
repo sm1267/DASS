@@ -19,7 +19,7 @@
     </div>
     <div>
       <span class="label">Durata sesiunii</span>
-      <strong><%= sessionInfo.maxAgeDays %> zile</strong>
+      <strong><%= sessionInfo.maxAgeMinutes %> minute</strong>
     </div>
     <div>
       <span class="label">Tichete create</span>
@@ -42,7 +42,7 @@
         <% recentTickets.forEach((ticket) => { %>
           <li>
             <strong><%= ticket.title %></strong>
-            <span class="muted"><%= ticket.severity %> • <%= ticket.status %></span>
+            <span class="muted"><%= ticket.severity %> - <%= ticket.status %></span>
           </li>
         <% }) %>
       </ul>
@@ -59,7 +59,7 @@
         <% recentLogs.forEach((log) => { %>
           <li>
             <strong><%= log.action %></strong>
-            <span class="muted"><%= log.resource %> • <%= log.timestamp %></span>
+            <span class="muted"><%= log.resource %> - <%= log.timestamp %></span>
           </li>
         <% }) %>
       </ul>
