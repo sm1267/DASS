@@ -27,12 +27,4 @@ Deschide `http://localhost:3000`.
 
 Optional, pentru o configuratie stabila a sesiunilor intre restarturi, seteaza `SESSION_SECRET` inainte sa pornesti serverul.
 
-## Date
 
-- fisier SQLite pentru v2: `data/authx-v2.db`
-- la prima rulare, schema este creata automat
-- daca fisierul SQLite existent foloseste o schema mai veche pentru v2, aplicatia incearca o migrare automata
-
-## Observatii pentru resetarea parolei
-
-In v2, aplicatia nu mai afiseaza tokenul de resetare in interfata. Pentru testare locala, linkul de resetare este scris in consola serverului dupa ce trimiti formularul de forgot password.
